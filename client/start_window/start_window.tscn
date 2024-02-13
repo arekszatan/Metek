@@ -1,0 +1,158 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6bkab0cbnxyl"]
+
+[ext_resource type="Script" path="res://start_window/start_window.gd" id="1_ic02y"]
+
+[sub_resource type="Theme" id="Theme_u2e7t"]
+default_font_size = 26
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l0u45"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[node name="start_window" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = SubResource("Theme_u2e7t")
+script = ExtResource("1_ic02y")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0352941, 0.0588235, 0.054902, 0.321569)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "MIETEK
+"
+uppercase = true
+
+[node name="close_button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.541176, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l0u45")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l0u45")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_l0u45")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_l0u45")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l0u45")
+text = "X
+"
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="main_container" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="resume_button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/main_container"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "RESUME"
+
+[node name="options_button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/main_container"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "OPTIONS"
+
+[node name="test" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/main_container"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "test"
+
+[node name="test2" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/main_container"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "-"
+
+[node name="rez3" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/main_container"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "-"
+
+[node name="options_cantainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/options_cantainer"]
+layout_mode = 2
+text = "OPTIONS:"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/options_cantainer"]
+layout_mode = 2
+text = "SET MAX FRAME:"
+horizontal_alignment = 1
+
+[node name="max_frame_option" type="OptionButton" parent="ColorRect/MarginContainer/VBoxContainer/options_cantainer"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "30"
+popup/item_0/id = 0
+popup/item_1/text = "60"
+popup/item_1/id = 1
+popup/item_2/text = "UNLIMITED"
+popup/item_2/id = 2
+
+[node name="back_button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/options_cantainer"]
+layout_mode = 2
+text = "BACK"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="connection" type="CheckBox" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+disabled = true
+text = "CONNECTION"
+
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/close_button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/main_container/resume_button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/main_container/options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/main_container/test" to="." method="_on_test_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/main_container/test2" to="." method="_on_test_2_pressed"]
+[connection signal="item_selected" from="ColorRect/MarginContainer/VBoxContainer/options_cantainer/max_frame_option" to="." method="_on_max_frame_option_item_selected"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/options_cantainer/back_button" to="." method="_on_back_button_pressed"]
