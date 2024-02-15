@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://yu31selnwyb1"]
+
+[ext_resource type="Script" path="res://server_comunication/server.gd" id="1_c7owp"]
+[ext_resource type="PackedScene" uid="uid://b6bkab0cbnxyl" path="res://start_window/start_window.tscn" id="2_c65o2"]
+[ext_resource type="PackedScene" uid="uid://d2swpmhqh6alp" path="res://game/game.tscn" id="3_a4nnc"]
+
+[sub_resource type="Environment" id="Environment_j7hid"]
+background_mode = 1
+background_color = Color(0.239216, 0.427451, 0.494118, 1)
+background_energy_multiplier = 0.73
+ambient_light_source = 2
+ambient_light_color = Color(0.647059, 0.647059, 0.647059, 1)
+ambient_light_energy = 1.15
+reflected_light_source = 1
+glow_normalized = true
+glow_blend_mode = 0
+fog_enabled = true
+fog_height = 22.15
+volumetric_fog_density = 0.528
+volumetric_fog_albedo = Color(0.411765, 0.411765, 0.411765, 1)
+volumetric_fog_emission = Color(0.360784, 0.360784, 0.360784, 1)
+volumetric_fog_emission_energy = 0.75
+volumetric_fog_gi_inject = 0.0
+volumetric_fog_anisotropy = 0.15
+volumetric_fog_length = 174.41
+volumetric_fog_detail_spread = 0.63728
+
+[node name="Mietek" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_j7hid")
+
+[node name="server" type="Node" parent="."]
+script = ExtResource("1_c7owp")
+
+[node name="start_window" parent="." instance=ExtResource("2_c65o2")]
+
+[node name="Game" parent="." instance=ExtResource("3_a4nnc")]

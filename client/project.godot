@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Metek"
-run/main_scene="res://game.tscn"
+run/main_scene="res://Mietek.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://client/icon.svg"
+config/icon="res://icon.svg"
 
 [display]
 
 window/size/viewport_width=1000
-window/size/viewport_height=500
+window/size/viewport_height=700
 
 [editor]
 

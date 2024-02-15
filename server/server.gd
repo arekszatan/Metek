@@ -1,9 +1,9 @@
 extends Node
 
 var multiplayer_peer 
-const PORT = 10001
-const MAX_PLAYERS = 5
-var connected_player = []
+const PORT := 10001
+const MAX_PLAYERS := 5
+@onready var start_window = get_node("/root/Mietek/start_window")
 
 func _ready():
 	multiplayer_peer = ENetMultiplayerPeer.new()
@@ -19,26 +19,8 @@ func _ready():
 	print("Waiting for player...")
 
 func player_connected(id):
-	print("Player connected ", id)
-	connected_player.append({
-		"id_player":id,
-		"name":""
-	})
-	#rpc("transfer_some_input")
+	print("Player with id %d connected"%[id])
 
 func player_disconnected(id):
-	print("Player disconnected ", id)
-	
-@rpc("call_local")
-func transfer_some_input():
-	print("start")
-
-@rpc("any_peer")
-func get_info_from_client(mess):
-	print(mess)
-
-
-
-
-
-
+	print("Player with id %d disconnected"%[id])
+	start_window.player_left_game_server(id)
