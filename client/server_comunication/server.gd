@@ -1,7 +1,8 @@
 extends Node
 var multiplayer_peer 
 const PORT = 10001
-const IP_ADDRESS = "192.168.16.74"
+#const IP_ADDRESS = "35.159.52.8"
+const IP_ADDRESS = "127.0.0.1"
 var connected_player = []
 enum {CONNECTED, DISCONNECTED}
 var state_connection = DISCONNECTED
@@ -12,7 +13,7 @@ func _ready():
 	add_child(reconnect_timer)
 	
 func connect_to_server():
-	multiplayer_peer = ENetMultiplayerPeer.new()
+	multiplayer_peer = ENetMultiplayerPeer.new() 
 	multiplayer.connected_to_server.connect(player_connected)
 	multiplayer.server_disconnected.connect(player_disconnected)
 	var error = multiplayer_peer.create_client(IP_ADDRESS, PORT)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://4x05en7775be"]
+[gd_scene load_steps=5 format=3 uid="uid://4x05en7775be"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_ujfyd"]
 [ext_resource type="PackedScene" uid="uid://hg18gg240e5y" path="res://game/player/wariror/warrior_player.tscn" id="2_bifh8"]
@@ -6,25 +6,52 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_gs0vq"]
 size = Vector3(1, 5.46557, 1)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kdsqg"]
+height = 7.07606
+radius = 1.09712
+
 [node name="player" type="RigidBody3D"]
 lock_rotation = true
 script = ExtResource("1_ujfyd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0894017, 2.24901, 0)
+transform = Transform3D(0.99768, 0, -0.0680849, 0, 1, 0, 0.0680849, 0, 0.99768, 0.0894017, 2.24901, 0)
 shape = SubResource("BoxShape3D_gs0vq")
 
 [node name="warrior_player" parent="." instance=ExtResource("2_bifh8")]
-transform = Transform3D(-0.961808, 0, -0.273724, 0, 1, 0, 0.273724, 0, -0.961808, 0, -5.44018, 0)
+transform = Transform3D(-0.999746, 0, -0.0225301, 0, 1, 0, 0.0225301, 0, -0.999746, 0, -5.44018, 0)
+
+[node name="action_area" type="Area3D" parent="warrior_player"]
+transform = Transform3D(-0.759596, 0, 0.0345003, 0, 1, 0, -0.0171181, 0, -1.53091, -0.167978, 5.44018, 7.45381)
+
+[node name="colision_action_area" type="CollisionShape3D" parent="warrior_player/action_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.84505, 0.0205908)
+shape = SubResource("CylinderShape3D_kdsqg")
 
 [node name="TwistPivot" type="Node3D" parent="."]
 
 [node name="PitchPivot" type="Node3D" parent="TwistPivot"]
 
 [node name="Camera3D" type="Camera3D" parent="TwistPivot/PitchPivot"]
-transform = Transform3D(1, 0, 0, 0, 0.924546, 0.38107, 0, -0.38107, 0.924546, 0, 5.89852, 5.86078)
+transform = Transform3D(1, 0, 0, 0, 0.924546, 0.38107, 0, -0.38107, 0.924546, 0, 8.17397, 8.26127)
 current = true
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="player_info_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.79295, 0)
+pixel_size = 0.01
+billboard = 1
+text = "dsadas"
+font_size = 30
+outline_size = 30
+autowrap_mode = 3
+width = 700.0
+
+[node name="player_name" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.83442, 0)
+pixel_size = 0.01
+billboard = 1
+text = "sdadada"
+font_size = 30
+outline_size = 30
+autowrap_mode = 3
+width = 700.0

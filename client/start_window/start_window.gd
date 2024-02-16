@@ -15,6 +15,9 @@ var is_started = false
 @onready var game = get_node("/root/Mietek/Game")
 @onready var enemy_player = load("res://game/enemy_player/enemy_player.tscn")
 
+var player_name
+signal start_game_signal(_name)
+
 func _ready():
 	info_label.hide()
 	options_container.hide()
@@ -62,9 +65,13 @@ func _on_connect_buton_pressed():
 func login_to_server(_mess):pass
 
 @rpc("authority","call_remote", "reliable")
-func login_to_server_callback(login_state:int):
+func login_to_server_callback(data):
 	login.set_text("")
 	password.set_text("")
+	var login_state = data["is_loged"]
+	player_name = data["name"]
+	print(player_name)
+	
 	if login_state == 1:
 		info_label.set_text("Success")
 		login_container.hide()
@@ -98,17 +105,20 @@ func start_game(player_in_game):
 			continue
 		var enemy_player_instance = enemy_player.instantiate()
 		enemy_player_instance.set_enemy_id(player)
+		#enemy_player_instance.set_enemy_name(name)
 		game.add_child(enemy_player_instance)	
-	rpc("new_player_join")
+	rpc("new_player_join", player_name)
+	start_game_signal.emit(player_name)
 	hide()
 
 @rpc("any_peer")
-func new_player_join():
+func new_player_join(_name):
 	if not is_started:
 		return
 	var enemy_player_instance = enemy_player.instantiate()
 	var id := multiplayer.get_remote_sender_id()
 	enemy_player_instance.set_enemy_id(id)
+	#enemy_player_instance.set_enemy_name(_name)
 	game.add_child(enemy_player_instance)	
 
 @rpc("authority")

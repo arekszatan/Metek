@@ -19,5 +19,18 @@ transform = Transform3D(-0.961808, 0, -0.273724, 0, 1, 0, 0.273724, 0, -0.961808
 
 [node name="name_label" type="Label3D" parent="."]
 transform = Transform3D(-0.998988, 0, -0.0449794, 0, 1, 0, 0.0449794, 0, -0.998988, 0, 6.05666, 0)
-text = "arek"
-font_size = 47
+pixel_size = 0.01
+billboard = 1
+modulate = Color(0, 1, 0, 1)
+text = "-"
+font_size = 30
+outline_size = 30
+
+[node name="enemy_info_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.62458, 0)
+pixel_size = 0.01
+billboard = 1
+font_size = 30
+outline_size = 30
+autowrap_mode = 3
+width = 700.0

@@ -1,0 +1,121 @@
+[gd_scene load_steps=4 format=3 uid="uid://j1jf7qv0upq1"]
+
+[ext_resource type="Script" path="res://game/player/player_ui/player_ui.gd" id="1_3bcgm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sygcn"]
+bg_color = Color(0, 0, 0, 0.137255)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_448kc"]
+bg_color = Color(0.854902, 0.501961, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="PlayerUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3bcgm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 8
+color = Color(0.54902, 0.360784, 1, 0.0705882)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 2
+
+[node name="player_ui_bottom" type="ColorRect" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 8
+color = Color(0.219608, 0.231373, 0.254902, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/player_ui_bottom"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/player_ui_bottom/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/player_ui_bottom/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Level:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="player_level_label" type="Label" parent="VBoxContainer2/player_ui_bottom/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "6969"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer2/player_ui_bottom/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="level_progress_bar" type="ProgressBar" parent="VBoxContainer2/player_ui_bottom/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_sygcn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_448kc")
+step = 1.0
+value = 29.0
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer2/player_ui_bottom/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="VBoxContainer2/player_ui_bottom/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Name:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="player_name_label" type="Label" parent="VBoxContainer2/player_ui_bottom/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "testowa nazwa"
+horizontal_alignment = 1
+vertical_alignment = 1
