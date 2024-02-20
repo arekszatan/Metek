@@ -2,7 +2,8 @@ extends Node
 var multiplayer_peer 
 const PORT = 10001
 #const IP_ADDRESS = "35.159.52.8"
-const IP_ADDRESS = "127.0.0.1"
+#const IP_ADDRESS = "127.0.0.1"
+const IP_ADDRESS = "192.168.1.103"
 var connected_player = []
 enum {CONNECTED, DISCONNECTED}
 var state_connection = DISCONNECTED

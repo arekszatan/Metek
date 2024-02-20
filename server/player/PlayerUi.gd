@@ -4,14 +4,14 @@ extends Node
 
 @rpc("any_peer","call_remote","reliable")
 func get_player_state_server(_name):
-	var query = "SELECT levels, level_per FROM accounts JOIN player_state on accounts.player_state = player_state.id WHERE name='%s';"%[_name]
-	var ret_data = db.custom_select(query)
+	var query = "SELECT levels, level_per FROM accounts JOIN player_state on 
+	accounts.player_state = player_state.id WHERE name='%s';"%[_name]
 	var id = multiplayer.get_remote_sender_id()
-	rpc_id(id,"set_player_state",ret_data)
+	rpc_id(id,"set_player_state", db.custom_select(query))
 
-@rpc
+@rpc("any_peer","call_remote","reliable")
 func set_player_state(_data):pass
-@rpc
+@rpc("any_peer","call_remote","reliable")
 func emit_player_name(_name):pass
-@rpc
+@rpc("any_peer","call_remote","reliable")
 func callback_set_player_name(_name):pass

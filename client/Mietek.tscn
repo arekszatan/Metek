@@ -16,13 +16,14 @@ glow_normalized = true
 glow_blend_mode = 0
 fog_enabled = true
 fog_height = 22.15
-volumetric_fog_density = 0.528
-volumetric_fog_albedo = Color(0.411765, 0.411765, 0.411765, 1)
-volumetric_fog_emission = Color(0.360784, 0.360784, 0.360784, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1166
+volumetric_fog_albedo = Color(0.592157, 0.592157, 0.592157, 1)
+volumetric_fog_emission = Color(0.611765, 0.611765, 0.611765, 1)
 volumetric_fog_emission_energy = 0.75
 volumetric_fog_gi_inject = 0.0
 volumetric_fog_anisotropy = 0.15
-volumetric_fog_length = 174.41
+volumetric_fog_length = 4.0
 volumetric_fog_detail_spread = 0.63728
 
 [node name="Mietek" type="Node3D"]

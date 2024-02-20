@@ -10,8 +10,7 @@ size = Vector3(1, 5.46557, 1)
 height = 7.07606
 radius = 1.09712
 
-[node name="player" type="RigidBody3D"]
-lock_rotation = true
+[node name="player" type="CharacterBody3D"]
 script = ExtResource("1_ujfyd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -22,7 +21,7 @@ shape = SubResource("BoxShape3D_gs0vq")
 transform = Transform3D(-0.999746, 0, -0.0225301, 0, 1, 0, 0.0225301, 0, -0.999746, 0, -5.44018, 0)
 
 [node name="action_area" type="Area3D" parent="warrior_player"]
-transform = Transform3D(-0.759596, 0, 0.0345003, 0, 1, 0, -0.0171181, 0, -1.53091, -0.167978, 5.44018, 7.45381)
+transform = Transform3D(-0.589145, 0, 0.0758017, 0, 2.033, 0, -0.0132768, 0, -3.36363, -0.1221, 5.44018, 5.41803)
 
 [node name="colision_action_area" type="CollisionShape3D" parent="warrior_player/action_area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.84505, 0.0205908)

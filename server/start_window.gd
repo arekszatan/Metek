@@ -75,5 +75,5 @@ func player_left_game_server(id):
 	print("Player %s remove from game on server side "%[id])
 	rpc("player_left_game",id)
 
-@rpc
+@rpc("any_peer", "call_remote", "reliable")
 func player_left_game(_id):pass
